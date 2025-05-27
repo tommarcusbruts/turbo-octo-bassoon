@@ -1,4 +1,4 @@
-# Node.js Demo App (DevOps Internship Task 1)
+# Node.js Demo App (DevOps Internship Task 2)
 
 This is a basic Node.js Express app used for demonstrating CI/CD using GitHub Actions and Docker.
 
