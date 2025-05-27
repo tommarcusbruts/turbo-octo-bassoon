@@ -10,14 +10,14 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/tommarcusbruts/turbo-octo-bassoon.git'
+                git branch: 'main', url: 'https://github.com/tommarcusbruts/turbo-octo-bassoon.git'
             }
         }
 
         stage('Build Docker Image') {
             steps {
                 script {
-                    dockerImage = docker.build(IMAGE_NAME)
+                    dockerImage = docker.build("${IMAGE_NAME}:${BUILD_NUMBER}")
                 }
             }
         }
@@ -26,8 +26,14 @@ pipeline {
             steps {
                 script {
                     sh "docker rm -f ${IMAGE_NAME} || true"
-                    dockerImage.run("-d -p ${HOST_PORT}:${CONTAINER_PORT} --name ${IMAGE_NAME}")
+                    sh "docker run -d -p ${HOST_PORT}:${CONTAINER_PORT} --name ${IMAGE_NAME} ${IMAGE_NAME}:${BUILD_NUMBER}"
                 }
+            }
+        }
+
+        stage('Verify Container Running') {
+            steps {
+                sh "docker ps | grep ${IMAGE_NAME}"
             }
         }
     }
