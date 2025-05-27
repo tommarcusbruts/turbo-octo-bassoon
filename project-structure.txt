@@ -1,0 +1,38 @@
+Folder PATH listing
+Volume serial number is 900D-15B3
+C:.
+¦   .env
+¦   .gitignore
+¦   app.json
+¦   Dockerfile
+¦   index.js
+¦   package-lock.json
+¦   package.json
+¦   Procfile
+¦   project-structure.txt
+¦   README.md
+¦   test.js
+¦   
++---.github
+¦   ¦   CODEOWNERS
+¦   ¦   dependabot.yml
+¦   ¦   
+¦   +---workflows
+¦           main.yml
+¦           
++---public
+¦   ¦   lang-logo.png
+¦   ¦   node.svg
+¦   ¦   
+¦   +---stylesheets
+¦           main.css
+¦           
++---views
+    +---pages
+    ¦       db.ejs
+    ¦       index.ejs
+    ¦       
+    +---partials
+            header.ejs
+            nav.ejs
+            
